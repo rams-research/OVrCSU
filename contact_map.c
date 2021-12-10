@@ -153,21 +153,17 @@ float DISTANCE_C_ALPHA(int i1,int i2) {
 	return dist(ATOM_COORDINATES(i1,j1),ATOM_COORDINATES(i2,j2));
 }
 
-/*
 void printA(int i1, int j1, int i2, int j2) {
 	int k1 = ATOM_INDEX(i1,j1);
 	int k2 = ATOM_INDEX(i2,j2);
 	float d = dist(ATOM_COORDINATES(i1,j1),ATOM_COORDINATES(i2,j2));
 	int t1 = atomauxs[k1].atype, t2 = atomauxs[k2].atype;
-	printf("A%5d  %3s   %1s %-3s %2d"
-               " %5d  %3s   %1s %-3s %2d"
-               "    %2d   %8.4f\n"
+	printf("A%5d  %3s   %1s %-3s %2d %5d  %3s   %1s %-3s %2d    %2d   %8.4f\n"
         ,pdb->atoms[k1].resSeq,pdb->atoms[k1].resName,pdb->atoms[k1].chainID,pdb->atoms[k1].name,t1,
-	 pdb->atoms[k2].resSeq,pdb->atoms[k2].resName,pdb->atoms[k2].chainID,pdb->atoms[k2].name,t2,
-	BONDTYPE(t1,t2), d
-);
+	    pdb->atoms[k2].resSeq,pdb->atoms[k2].resName,pdb->atoms[k2].chainID,pdb->atoms[k2].name,t2,
+	    BONDTYPE(t1,t2), d);
 }
-*/
+
 /*
 printf("\n\n"
 "Atom  - Atom contacts\n"
@@ -187,16 +183,14 @@ int main (int argc,char **argv) {
 	printf(
 "                         CONTACT MAPS FROM PDB FILES                          \n"
 "                                                                              \n"
-" This software is written by:                                                 \n"
-"       Rodrigo Azevedo Moreira da Silva                                       \n"
+" Copyright (c) 2020 - 2022 Rodrigo Azevedo Moreira da Silva                   \n"
 "                                                                              \n"
-" Copyright (c) 2020 - IPPT-PAN                                                \n"
 "       Institute of Fundamental Techonological Research                       \n"
 "       Polish Academy of Sciences                                             \n"
-" MIT LICENSE, check out LICENSE for more informations.                        \n"
+"                                                                              \n"
+" CC BY-NC-SA 4.0 license. Check out LICENSE for more informations.            \n"
 "                                                                              \n"
         );
-
 
 	size_t size_pdb = sizeof(pdb_str) + 100000*sizeof(atom_pdb_str);
 
@@ -275,8 +269,7 @@ int main (int argc,char **argv) {
 				// FIND I2 J2 CLOSEST TO A GIVEN POINT ON THE SURFACE
 				for (int k=0; k<fibb; k++) {
 				surface_str * s = surface + k;
-				if( dist(SURFACE_COORDINATES(k),ATOM_COORDINATES(i2,j2)) < vdW_RADIUS(i2,j2)+water_radius
-                                    && distance <= s->d) {	
+				if( dist(SURFACE_COORDINATES(k),ATOM_COORDINATES(i2,j2)) < vdW_RADIUS(i2,j2)+water_radius && distance <= s->d) {
       					s->d = distance;
       					s->i = i2;
       					s->j = j2;
@@ -330,7 +323,7 @@ int main (int argc,char **argv) {
 "\n"
 "      ID    I1  AA  C I(PDB)     I2  AA  C I(PDB)        DCA       CMs    rCSU   Count Model\n"
 "============================================================================================\n"
-//       
+//
 );
 	int count = 0;
 	for(int i1=0;i1 < nresidues;i1++) {
@@ -349,7 +342,7 @@ int main (int argc,char **argv) {
 			count++;
 			printf("R %6d ",count);
 			printf("%5d %4s %1s %4d",i1+1,residues[i1].name,residues[i1].chain,residues[i1].seq);
-                        printf("    ");
+            printf("    ");
 			printf("%5d %4s %1s %4d",i2+1,residues[i2].name,residues[i2].chain,residues[i2].seq);
 			printf("     %8.4f     ",DISTANCE_C_ALPHA(i1,i2));
 			printf("%d %d %d %d",
