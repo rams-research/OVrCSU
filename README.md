@@ -1,16 +1,18 @@
 [![Licence](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-grey.svg?style=for-the-badge)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![C](https://img.shields.io/badge/C-%232C2D72.svg?style=for-the-badge&logo=C&logoColor=white)](https://gcc.gnu.org)
 
-
 # OVrCSU
 
-It is an alternative implementation of the OV and rCSU contact map algorithm suitable to large scale and multiple structures analysis.
+It is an alternative implementation of the OV and rCSU contact map algorithm suitable to large scale and multiple structures analysis. If you you this software, please cite it using the DOI
+
+[![DOI](https://zenodo.org/badge/436968109.svg)](https://zenodo.org/badge/latestdoi/436968109)
+
 
 The original paper describing the methodology 
 
-Determination of contact maps in proteins: A combination of structural and chemical approaches
-
-[J. Chem. Phys. 143, 243105 (2015)](https://doi.org/10.1063/1.4929599)
+> Determination of contact maps in proteins: A combination of structural and chemical approaches
+> 
+> [J. Chem. Phys. 143, 243105 (2015)](https://doi.org/10.1063/1.4929599)
 
 ## Author
 
